@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Rough from './Rough';
+import './Rough.css';
+import FetchData from './FetchData';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <Rough /> */}
+    <FetchData />
   </React.StrictMode>,
   document.getElementById('root')
 );

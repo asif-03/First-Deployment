@@ -1,38 +1,293 @@
-.App {
-  text-align: center;
+.App{
+
+ text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav{
+
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ background-color: rgb(12, 85, 31);
+ color: white;
+ 
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.headText{
+
+
+ color: rgb(253, 129, 80);
+ position: relative;
+ 
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.backBtn{
+
+ width: 40px;
+ color: maroon;
+ background-color: rgb(220, 245, 237);
+
 }
 
-.App-link {
-  color: #61dafb;
+.logOutBtn{
+
+ color: rgb(12, 85, 31);
+ font-weight: bold;
+ position: relative;
+ background-color: rgb(220, 245, 237);
+
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logOutBtn:hover{
+
+ background-color: lightsalmon;
+
 }
+
+
+
+.loginPage{
+
+ border-width: 10px;
+ border-top-style: groove;
+ border-color: lightsalmon;
+ background-color: rgb(220, 245, 237);
+ display: block;
+ height:584px;
+
+
+}
+
+.loginPageHeadText{
+
+ margin-top: 70px;
+ font-weight: bolder;
+ color: purple;
+ font-size: 25px;
+
+}
+
+
+.login-Wrapper{
+
+
+ 
+ display:block;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+  top: 80px;
+  left: 34%;
+ width: 30%;
+ height: 200px;
+ background-color: cadetblue;
+ justify-self: center;
+ border-style: groove;
+ border-width: 5px;
+ border-color:lightsalmon;
+
+}
+
+.loginBox{
+
+ width: 50%;
+ height: 10%;
+ position: relative;
+  top: 20px;
+ background-color: rgb(219, 234, 235);
+ cursor:text;
+
+}
+
+.loginBox:hover{
+
+ background-color: rgb(255, 225, 213);
+
+
+
+}
+
+.rememberMe{
+
+ position: relative;
+ top: 1%;
+
+
+
+}
+
+.rememberMe:hover{
+
+ width: 6%;
+ height: 6.6%;
+
+}
+
+
+.rememberMeLabel{
+
+ position: relative;
+  top: 20%;
+ color: rgb(2, 66, 19);
+
+
+}
+
+.loginButton{
+
+ width: 18%;
+ height: 13%;
+ position: relative;
+  top: 60px;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ color: white;
+ background-color: lightsalmon;
+ font-weight: bold;
+ cursor:pointer;
+
+}
+
+.loginButton:hover{
+
+ width: 20%;
+ height: 13%;
+ font-weight: bolder;
+ color: rgb(12, 85, 31);
+
+
+}
+
+.mainPage{
+
+ background-color: rgb(187, 134, 99);
+ display: flex;
+
+
+
+}
+
+.sec-One{
+
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: rgb(222, 189, 231);
+ height: 600px;
+ width: 50%;
+
+}
+
+.sec-Two{
+
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: rgb(219, 178, 155);
+ height: 600px;
+ width: 50%;
+
+}
+
+.tMainPage{
+
+ position: relative;
+ background-color: rgb(0, 0, 0);
+ height: 565px;
+ text-align: center;
+ padding-top: 1.5%;
+ 
+ 
+
+}
+
+.topicsContainer{
+
+ width: 80%;
+ height: 450px;
+ background-color: rgb(141, 99, 20);
+ position: relative;
+  bottom: 30px;
+  left: 9.4%;
+ border-radius: 50px;
+ display: flex;
+
+}
+
+
+.section{
+
+ position: relative;
+  top: 12%;
+  left: 5%;
+ background-color: rgb(82, 28, 28);
+ width: 20%;
+ height: 300px;
+ margin: 10px;
+ font-size: 100%;
+ font-weight:900;
+ font-variant-ligatures: historical-ligatures;
+
+}
+
+.sectionText{
+
+ color: rgb(6, 82, 92);
+ position: relative;
+  top: 28%;
+
+}
+.jsMainPage{
+
+ background-color: rgb(220, 245, 237);
+
+}
+
+
+.javaScriptHeadText{
+
+ position: relative;
+ bottom: 700px;
+ left: 80px;
+ color: rgb(155, 13, 150);
+ font-family: cursive;
+
+}
+
+
+.sideBar{
+  
+ width: 239px;
+ height: 800px;
+ background-color: rgb(82, 7, 79);
+
+}
+
+.topicsWrapper{
+
+background-color:lightseagreen;
+display:relative;
+bottom: 900px;
+width: 60%;
+margin-left: 200px;
+
+
+}
+
+.eachTopic{
+
+ background-color: olive;
+ height: 50px;
+ width: 70%;
+ margin:5px;
+ 
+
+}
+
+
