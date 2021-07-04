@@ -14,7 +14,8 @@ class FetchData extends Component {
       filterDB: [],
       displayData: [],
       searchText: "",
-      selectedOption: 'All'
+      selectedOption: 'All',
+      isEditing: false
 
 
     }
@@ -105,6 +106,15 @@ class FetchData extends Component {
 
   }
 
+  editFunc = () => {
+
+
+    this.setState({
+      isEditing: !this.state.isEditing
+    })
+
+  }
+
 
   renderData = (data, idx) => {
 
@@ -114,7 +124,7 @@ class FetchData extends Component {
         <td>{data.id}</td>
         <td>{data.title}</td>
         <td style={data.completed === true ? { color: 'green' } : { color: 'red' }}>{data.completed === true ? 'True' : 'False'}</td>
-        <td><button>Edit</button></td>
+        <td><button onClick={this.editFunc()} >Edit</button></td>
         <td><button>Delete</button></td>
       </tr>
 
