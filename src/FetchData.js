@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './FetchData.css';
+import * as ReactBootStrap from "react-bootstrap";
 
 
 class FetchData extends Component {
@@ -20,6 +21,7 @@ class FetchData extends Component {
 
   }
 
+
   async componentDidMount() {
 
     const url = "https://jsonplaceholder.typicode.com/users/1/todos";
@@ -36,6 +38,8 @@ class FetchData extends Component {
 
 
   }
+
+
 
 
   filterStatus = (e) => {
@@ -61,11 +65,11 @@ class FetchData extends Component {
     })
     this.setState({
       displayData: temp,
-      filterDB: temp,
       selectedOption: input
 
     })
   }
+
 
   filterSearch = (e) => {
 
@@ -81,12 +85,13 @@ class FetchData extends Component {
 
     });
 
-
     this.setState({
       displayData: temp,
       searchText: input
     })
   }
+
+
 
   resetAll = () => {
 
@@ -98,9 +103,25 @@ class FetchData extends Component {
 
     })
 
+  }
 
+
+  renderData = (data, idx) => {
+
+    return (
+
+      <tr key={idx}>
+        <td>{data.id}</td>
+        <td>{data.title}</td>
+        <td style={data.completed === true ? { color: 'green' } : { color: 'red' }}>{data.completed === true ? 'True' : 'False'}</td>
+        <td><button>Edit</button></td>
+        <td><button>Delete</button></td>
+      </tr>
+
+    )
 
   }
+
 
 
   render() {
@@ -110,7 +131,7 @@ class FetchData extends Component {
 
       <>
         <header className="header">
-          <h3>
+          <h3 className="headerText">
             DataBase
           </h3>
           <select className="selection" value={this.state.selectedOption} onChange={(e) => { this.filterStatus(e) }}>filter
@@ -119,21 +140,26 @@ class FetchData extends Component {
             <option value='False'>False</option>
           </select>
           <input type="text" className="searchBox" placeholder="Search.." onChange={(e) => { this.filterSearch(e) }}></input>
-          <button className="searchButton" onClick={this.resetAll}>Reset</button>
+          <button className="resetButton" onClick={this.resetAll}>Reset</button>
         </header>
 
+        <div>
+          <ReactBootStrap.Table striped bordered hover >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Update</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
 
-        <div class="container" className="dataContainer">
+              {this.state.displayData.map(this.renderData)}
 
-          {this.state.displayData
-            .map((data, idx) => (
-              <div class="row" key={idx}>
-                <div class="col-sm" >{data.id}</div>
-                <div class="col-sm" style={{ color: "purple" }}>{data.title}</div>
-                <div class="col-sm" style={data.completed === true ? { color: 'green' } : { color: 'red' }}>{data.completed === true ? 'True' : 'False'}</div>
-
-              </div>
-            ))}
+            </tbody>
+          </ReactBootStrap.Table>
         </div>
 
 
