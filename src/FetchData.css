@@ -1,35 +1,53 @@
 .header{
 
-background-color: burlywood ;
+background-color: rgb(85, 126, 110) ;
 display: flex;
 justify-content: space-between;
 
 
 }
 
+.headerText{
+
+  font-weight: bold;
+  position: relative;
+  left: 40rem;
+  margin-top: 0.3rem;
+
+}
+
 .selection{
 
 position: relative;
-left: 60rem;
+left: 56.4rem;
 margin-top: 0.5rem;
 margin-bottom: 0.5rem;
+background-color: rgb(230, 217, 230);
+font-weight: bold;
+
 
 }
 
 .searchBox{
 
 position: relative;
-left: 18.5rem;
+left: 9.8rem;
 margin-top: 0.5rem;
 margin-bottom: 0.5rem;
+background-color: rgb(223, 221, 211);
 
 }
 
-.searchButton{
+.resetButton{
 
-margin-top: 0.5rem;
+margin-top: 0.4rem;
 margin-bottom: 0.5rem;
 margin-right: 1rem;
+position: relative;
+right: 3rem;
+background-color: rgba(104, 63, 63, 0.788);
+color: white;
+font-weight: bold;
 }
 
 .mainPage{
