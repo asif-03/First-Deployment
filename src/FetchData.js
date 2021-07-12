@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './FetchData.css';
 import * as ReactBootStrap from "react-bootstrap";
+import { Button } from 'react-bootstrap';
+import ModalEdit from './ModalEdit';
 
 
 class FetchData extends Component {
@@ -8,14 +10,17 @@ class FetchData extends Component {
   constructor(props) {
     super(props)
 
+
     this.state = {
 
       dataBase: [],
       filterDB: [],
+      modalDataBase: [],
       displayData: [],
       searchText: "",
       selectedOption: 'All',
-      isEditing: false
+      isEditing: false,
+      requiredItem: 0
 
 
     }
@@ -24,15 +29,18 @@ class FetchData extends Component {
 
 
   async componentDidMount() {
+    console.log('prateek')
 
     const url = "https://jsonplaceholder.typicode.com/users/1/todos";
     const response = await fetch(url);
     const result = await response.json()
+
     console.log(result)
 
     this.setState({
       dataBase: result,
       filterDB: result,
+      modalDataBase: result,
       displayData: result
 
     })
@@ -106,17 +114,74 @@ class FetchData extends Component {
 
   }
 
-  editFunc = () => {
+  openModal = (idx) => {
 
-
+    console.log("index number is " + idx)
     this.setState({
-      isEditing: !this.state.isEditing
+      isEditing: !this.state.isEditing,
+      requiredItem: idx
     })
+
+
 
   }
 
 
+  saveModalDetails = (editedTitle, editedStatus) => {
+
+    let idx = this.state.requiredItem;
+    let temp = this.state.dataBase;
+    temp[idx].title = editedTitle
+    temp[idx].completed = temp[idx].completed.toString() === editedStatus ? temp[idx].completed : !temp[idx].completed
+
+
+    console.log(temp[idx].completed.toString())
+    console.log(!temp[idx].completed.toString())
+    console.log(temp)
+
+    this.setState({
+
+      filterDB: temp,
+      displayData: temp,
+      isEditing: !this.state.isEditing
+
+
+    })
+
+  }
+
+  deleteItem = (idx) => {
+
+
+    let temp = this.state.dataBase;
+    temp.splice(idx, 1)
+
+    this.setState({
+
+
+      filterDB: temp,
+      displayData: temp
+
+
+    })
+
+
+
+  }
+
+
+
+  closeModal = () => {
+
+    this.setState({
+      isEditing: !this.state.isEditing
+
+    })
+  }
+
+
   renderData = (data, idx) => {
+
 
     return (
 
@@ -124,8 +189,8 @@ class FetchData extends Component {
         <td>{data.id}</td>
         <td>{data.title}</td>
         <td style={data.completed === true ? { color: 'green' } : { color: 'red' }}>{data.completed === true ? 'True' : 'False'}</td>
-        <td><button onClick={this.editFunc()} >Edit</button></td>
-        <td><button>Delete</button></td>
+        <td><Button onClick={() => this.openModal(idx)} >Edit</Button></td>
+        <td><Button variant="danger" onClick={(idx) => { this.deleteItem(idx) }}>Delete</Button></td>
       </tr>
 
     )
@@ -135,6 +200,15 @@ class FetchData extends Component {
 
 
   render() {
+
+
+    let requiredItem = this.state.requiredItem
+    let modalData = this.state.dataBase[requiredItem]
+    let saveModalDetails = this.saveModalDetails
+    console.log(this.state.dataBase)
+
+
+
 
 
     return (
@@ -150,10 +224,16 @@ class FetchData extends Component {
             <option value='False'>False</option>
           </select>
           <input type="text" className="searchBox" placeholder="Search.." onChange={(e) => { this.filterSearch(e) }}></input>
-          <button className="resetButton" onClick={this.resetAll}>Reset</button>
+          <Button className="resetButton" onClick={this.resetAll}>Reset</Button>
         </header>
 
-        <div>
+        <div >
+          {
+            modalData ? < ModalEdit isEditing={this.state.isEditing} closeModal={this.closeModal} modalData={modalData} saveModalDetails={this.saveModalDetails} modalDataBase={this.state.modalDataBase} />
+              : <></>
+          }
+
+
           <ReactBootStrap.Table striped bordered hover >
             <thead>
               <tr>
@@ -170,6 +250,7 @@ class FetchData extends Component {
 
             </tbody>
           </ReactBootStrap.Table>
+
         </div>
 
 

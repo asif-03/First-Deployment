@@ -7,10 +7,12 @@ import Rough from './Rough';
 import './Rough.css';
 import FetchData from './FetchData';
 
+
 ReactDOM.render(
   <React.StrictMode>
     {/* <Rough /> */}
     <FetchData />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
